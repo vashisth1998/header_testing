@@ -16,17 +16,17 @@ st.divider()
 
 # --- BACKGROUND SE HEADER/FOOTER LOAD KARNA ---
 # Dhyaan rakhein ki aapki images ka naam exact yahi ho aur wo code wale folder mein hon
-HEADER_PATH = "header.png"
-FOOTER_PATH = "footer.png"
+HEADER_PATH = "header.PNG"
+FOOTER_PATH = "footer.PNG"
 
 # Check karna ki background images moujood hain ya nahi
 if not os.path.exists(HEADER_PATH) or not os.path.exists(FOOTER_PATH):
-    st.error("⚠️ Background mein 'header.png' ya 'footer.png' nahi mili!")
-    st.info("💡 Solution: Apni header aur footer images ko 'header.png' aur 'footer.png' naam se rename karke apne GitHub repo/folder mein upload kar dein.")
+    st.error("⚠️ Background mein 'header.PNG' ya 'footer.PNG' nahi mili!")
+    st.info("💡 Solution: Apni header aur footer images ko 'header.PNG' aur 'footer.PNG' naam se rename karke apne GitHub repo/folder mein upload kar dein.")
 else:
     # --- MAIN DOCUMENT UPLOAD SECTION ---
     st.subheader("Apna Document Upload Karein")
-    main_doc = st.file_uploader("Upload File (PDF, Word (.docx) ya Image)", type=['pdf', 'docx', 'png', 'jpg', 'jpeg'])
+    main_doc = st.file_uploader("Upload File (PDF, Word (.docx) ya Image)", type=['pdf', 'docx', 'PNG', 'jpg', 'jpeg'])
 
     if main_doc:
         file_extension = main_doc.name.split('.')[-1].lower()
@@ -38,7 +38,7 @@ else:
                 # ==========================================
                 # 1. AGAR DOCUMENT IMAGE HAI (PNG/JPG)
                 # ==========================================
-                if file_extension in ['png', 'jpg', 'jpeg']:
+                if file_extension in ['PNG', 'jpg', 'jpeg']:
                     header_img = Image.open(HEADER_PATH)
                     footer_img = Image.open(FOOTER_PATH)
                     main_img = Image.open(main_doc)
@@ -71,7 +71,7 @@ else:
                         label="📥 Download Branded Image", 
                         data=img_byte_arr.getvalue(), 
                         file_name=f"branded_{main_doc.name}", 
-                        mime="image/png"
+                        mime="image/PNG"
                     )
 
                 # ==========================================
